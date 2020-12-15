@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="blocks/heads :: heads"></head>
+<body th:style="'background:url('+ @{/static/pic/background.jpg} +');'">
+<div class="top-bar" th:insert="blocks/header :: header"></div>
+<br>
+
+<div class="row column">
+    <form method="post" enctype="multipart/form-data">
+        <input type="text" name="brand" required placeholder="Brand">
+        <input type="text" name="model" required placeholder="Model">
+        <input type="text" name="year" required placeholder="Year of issue" maxlength="4">
+        <input type="text" name="price" required placeholder="Price">
+        <label>Transport photos</label>
+        <input type="file" name="file" accept=".jpg, .jpeg, .png" multiple="multiple" min="5" max="5">
+        <textarea name="description" required placeholder="Description"></textarea>
+        <button type="submit" class="button">Add car</button>
+    </form>
+</div>
+
+<div th:insert="blocks/scripts :: scripts"></div>
+</body>
+</html>

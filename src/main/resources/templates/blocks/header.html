@@ -1,0 +1,60 @@
+<div th:fragment="header" xmlns:th="http://www.w3.org/1999/xhtml"
+     xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <div class="navbar">
+        <div class="top-bar-left">
+            <ul class="dropdown menu" data-dropdown-menu>
+                <li><a href="/"><img src="/static/pic/M.png" style="width: 60px; height: 50px"></a></li>
+            </ul>
+        </div>
+        <div class="top-bar-left">
+            <ul class="menu, top-bar-left" style="float: right">
+                <a class="button" href="/catalog">Catalog</a>
+            </ul>
+        </div>
+
+        <div class="top-bar-left" sec:authorize="isAuthenticated()">
+            <ul class="menu, top-bar-left" style="float: right">
+                <a class="button" href="/catalog/add">Add car</a>
+            </ul>
+        </div>
+
+        <div class="top-bar-left" sec:authorize="isAuthenticated()">
+            <ul class="menu, top-bar-left" style="float: right">
+                <a class="button" href="/search">Search</a>
+            </ul>
+        </div>
+
+
+        <ul class="menu" style="float: right" sec:authorize="isAnonymous()">
+            <li><a class="button" href="/login">Log in</a></li>
+        </ul>
+        <ul class="menu" style="float: right" sec:authorize="isAuthenticated()">
+            <li><a class="button" th:text="${#authentication.name}" href="/profile"></a></li>
+            <li>
+                <form action="/logout" method="post">
+                    <input class="button" type="submit" value="Log out"/>
+                </form>
+            </li>
+        </ul>
+
+        <div class="dropdown">
+            <button class="dropbtn, button">Info
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="/about">About Us</a>
+                <a href="/contacts">Contacts</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn, button" sec:authorize="hasAuthority('ADMIN')">Admin panel
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="/listofusers">View list of users</a>
+            </div>
+        </div>
+    </div>
+</div>

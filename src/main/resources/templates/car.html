@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="blocks/heads :: heads"></head>
+<body th:style="'background:url('+ @{/static/pic/background.jpg} +');'">
+<div class="top-bar" th:insert="blocks/header :: header"></div>
+<br>
+
+<div class="column row">
+    <div class="row">
+        <div class="medium-6 columns">
+            <img class="frontImage thumbnail" th:src="@{|/static/img/${car.filename}|}">
+            <div class="row small-up-4">
+                <div class="column">
+                    <img class="thumbnail backImage" th:src="@{|/static/img/${car.filename2}|}">
+                </div>
+                <div class="column">
+                    <img class="thumbnail backImage" th:src="@{|/static/img/${car.filename3}|}">
+                </div>
+                <div class="column">
+                    <img class="thumbnail backImage" th:src="@{|/static/img/${car.filename4}|}">
+                </div>
+                <div class="column">
+                    <img class="thumbnail backImage" th:src="@{|/static/img/${car.filename5}|}">
+                </div>
+            </div>
+        </div>
+        <div class="medium-6 large-5 columns">
+            <h3 th:text="${car.brand} + ' '+ ${car.model}"></h3>
+            <h3 th:text="'Year of issue '+ ${car.year}"></h3>
+            <h3 th:text="'Price: '+ ${car.price} + '$'"></h3>
+            <h5 th:text="'Description: '+${car.description}"></h5>
+        </div>
+    </div>
+</div>
+
+<div class="row column" th:insert="blocks/footer :: footer"></div>
+
+<div th:insert="blocks/scripts :: scripts"></div>
+</body>
+</html>

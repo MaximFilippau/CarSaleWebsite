@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="blocks/heads :: heads"></head>
+<body th:style="'background:url('+ @{/static/pic/background.jpg} +');'">
+<div class="top-bar" th:insert="blocks/header :: header"></div>
+<br>
+<div class="row column">
+    <h4>Log in</h4>
+    <div th:if="${param.error}">
+        Login or password entered error
+    </div>
+    <div th:if="${param.logout}">
+        You have been logged out.
+    </div>
+    <form method="post" action="/login">
+        <input type="text" name="username" placeholder="Enter your username" class="form-control" autocomplete="off"><br>
+        <input type="password" name="password" placeholder="Enter your password" class="form-control" autocomplete="off"><br>
+        <button type="submit" class="button">Log in</button>
+    </form>
+    <h4>New here? Please registry</h4>
+    <a class="button" href="/registration">Tap here for registry</a>
+</div>
+<div class="row column" th:insert="blocks/footer :: footer"></div>
+
+<div th:insert="blocks/scripts :: scripts"></div>
+</body>
+</html>

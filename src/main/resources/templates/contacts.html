@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="blocks/heads :: heads"></head>
+<body th:style="'background:url('+ @{/static/pic/background.jpg} +');'">
+<div class="top-bar" th:insert="blocks/header :: header"></div>
+<br>
+<div class="row column">
+
+    <div>
+        <p>Our address: Maxim Gorky st. 61</p>
+        <p>Our telephone: +375(33)333-33-33</p>
+        <p>E-mail: transportcompanymaxim@yandex.ru</p>
+    </div>
+    <div>
+        Have any questions?
+        Or do you want to clarify something?
+        Please contact us by clicking on this button:
+        <a href="/feedback">Click me!</a>
+    </div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1181.1086461597856!2d23.818881342430604!3d53.696574023488324!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e078a19a36b15b%3A0x9ff01022ff2c0fa3!2z0YPQuy4g0JzQsNC60YHQuNC80LAg0JPQvtGA0YzQutC-0LPQviA2MSwg0JPRgNC-0LTQvdC-IDIzMDAwNQ!5e0!3m2!1sru!2sby!4v1607785342888!5m2!1sru!2sby"
+            width="1200" height="400" frameborder="0" style="border:0;" allowfullscreen=""
+            aria-hidden="false" tabindex="0">
+    </iframe>
+
+</div>
+<div class="row column" th:insert="blocks/footer :: footer"></div>
+
+<div th:insert="blocks/scripts :: scripts"></div>
+</body>
+</html>

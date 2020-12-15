@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="blocks/heads :: heads"></head>
+<body th:style="'background:url('+ @{/static/pic/background.jpg} +');'">
+<div class="top-bar" th:insert="blocks/header :: header"></div>
+<br>
+<div class="row column">
+    <div>
+        <div>
+            <p> This site was created with one goal in mind: to let people sell their cars!
+                We tried to create a simple and intuitive interface so that even the oldest people can use this site without any problems.
+                If you find any problems or you have suggestions for improving the site, please contact us using the feedback form.
+                We wish you a pleasant time on our website and good luck in finding your dream car!
+            </p>
+        </div>
+
+        <div class="rowg">
+            <div class="columng">
+                <img class="pic_about" th:src="@{~/static/pic/1.png}">
+            </div>
+            <div class="columng">
+                <img class="pic_about" th:src="@{~/static/pic/2.jpg}">
+            </div>
+            <div class="columng">
+                <img class="pic_about" th:src="@{~/static/pic/3.jpg}">
+            </div>
+            <div class="columng">
+                <img class="pic_about" th:src="@{~/static/pic/4.jpg}">
+            </div>
+            <div class="columng">
+                <img class="pic_about" th:src="@{~/static/pic/5.jpg}">
+            </div>
+            <div class="columng">
+                <img class="pic_about" th:src="@{~/static/pic/6.jpg}">
+            </div>
+            <div class="columng">
+                <img class="pic_about" th:src="@{~/static/pic/7.jpg}">
+            </div>
+            <div class="columng">
+                <img class="pic_about" th:src="@{~/static/pic/8.jpg}">
+            </div>
+        </div>
+
+        <div class="row column" th:insert="blocks/footer :: footer"></div>
+        <div th:insert="blocks/scripts :: scripts"></div>
+    </div>
+</body>
+</html>

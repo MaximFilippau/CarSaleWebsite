@@ -1,0 +1,131 @@
+.image {
+    width: 370px;
+    height: 300px;
+    min-width: auto;
+    min-height: auto;
+    margin: 10px;
+    z-index: 10;
+    position: relative;
+}
+.thisDiv{
+    display: inline-block; vertical-align: middle;
+    float: left;
+    position: relative;
+}
+.divImage {
+    margin: 0; justify-content: center; display: inline-block; width: 100%; float: left;
+}
+.numberImage {
+    width: 200px;
+    height: 150px;
+}
+
+.frontImage {
+    width: 650px;
+    height: 350px;
+}
+
+.icons{
+    width: 30px;
+    height: 30px;
+}
+
+.backImage{
+    width: 120px;
+    height: 90px;
+}
+
+.foot{
+    margin-top:200px;
+    position: fixed;
+    left: 0; bottom: 0;
+    padding: 10px;
+    background: steelblue;
+    color: #fff;
+    width: 100%;
+}
+
+
+
+.navbar {
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 15px 20px;
+    background-color: blueviolet;
+    font-family: inherit;
+    margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.columng {
+    float: left;
+    width: 25%;
+    padding: 10px;
+}
+
+.rowg:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.container {
+    position: relative;
+    display: none;
+}
+
+.row{margin-bottom: 50px;}
+
+.button{height: 50px; width: 170px;}
+
+.pic_about{width:500px;height: 170px;}

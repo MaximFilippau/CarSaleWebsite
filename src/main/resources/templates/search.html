@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:insert="blocks/heads :: heads"></head>
+<body th:style="'background:url('+ @{/static/pic/background.jpg} +');'">
+<div class="top-bar" th:insert="blocks/header :: header"></div>
+<br>
+<form method="get" action="search">
+    <input type="text" name="brandFilter" placeholder="Brand" th:value="${brandFilter}">
+    <input type="text" name="modelFilter" placeholder="Model" th:value="${modelFilter}">
+    <input type="text" name="yearFilter" placeholder="Year" th:value="${yearFilter}">
+    <input type="submit" value="Search">
+</form>
+
+<div class="row column">
+    <div class="cell" th:each="car : ${search.content}">
+        <a th:href="@{|/search/${car.id}|}">
+            <img class="numberImage thumbnail" th:src="@{|/static/img/${car.filename}|}">
+        </a>
+        <h5 th:text="${car.brand} + ' '+ ${car.model}"></h5>
+        <h5 th:text="'Year of issue: '+ ${car.year}"></h5>
+        <h5 th:text="'Price: '+ ${car.price} + '$'"></h5>
+        <a th:value="${car}" th:href="@{|/catalog/${car.id}|}" class="button hollow tiny expanded">View</a>
+    </div>
+</div>
+
+<div class="row column" th:insert="blocks/footer :: footer"></div>
+
+<div th:insert="blocks/scripts :: scripts"></div>
+</body>
+</html>

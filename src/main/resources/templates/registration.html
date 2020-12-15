@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="blocks/heads :: heads"></head>
+<body th:style="'background:url('+ @{/static/pic/background.jpg} +');'">
+<div class="top-bar" th:insert="blocks/header :: header"></div>
+<br>
+<div class="row column">
+    <div>
+        <h4>Регистрация</h4>
+        <form method="post" id="form3" th:object="${user}">
+            <input type="text" name="username" placeholder="Enter your username" autocomplete="off" th:field="*{username}"><br>
+            <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+            <input type="text" name="username" placeholder="Enter your name" autocomplete="off" th:field="*{name}"><br>
+            <input type="text" name="username" placeholder="Enter your surname" autocomplete="off" th:field="*{surname}"><br>
+            <input type="password" name="password" required placeholder="Enter your password" autocomplete="off"><br>
+            <input type="email" name="email" required placeholder="Enter your E-mail" autocomplete="off" th:field="*{email}"><br>
+            <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+            <input id="phone" type="text" name="phoneNumber" required placeholder="Enter your phone number" autocomplete="off"><br>
+            <button type="submit" class="button">Registry</button>
+        </form>
+    </div>
+</div>
+<div class="row column" th:insert="blocks/footer :: footer"></div>
+
+<div th:insert="blocks/scripts :: scripts"></div>
+</body>
+</html>

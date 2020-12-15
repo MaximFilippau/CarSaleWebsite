@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:insert="blocks/heads :: heads"></head>
+<body th:style="'background:url('+ @{/static/pic/background.jpg} +');'">
+<div class="top-bar" th:insert="blocks/header :: header"></div>
+<br>
+
+<div class="row column">
+    <div class="cell" th:each="users : ${user}">
+        <label>Your username</label>
+        <div class="panel callout radius">
+        <p th:text="${user.username}"></p>
+        </div>
+        <label>Your telephone number</label>
+        <div class="panel callout radius">
+            <p th:text="${user.phoneNumber}"></p>
+        </div>
+        <label>Your E-mail</label>
+        <div class="panel callout radius">
+            <p th:text="${user.email}"></p>
+        </div>
+        <label>Your cars</label>
+
+</div>
+<div class="row column" th:insert="blocks/footer :: footer"></div>
+
+<div th:insert="blocks/scripts :: scripts"></div>
+</body>
+</html>
+

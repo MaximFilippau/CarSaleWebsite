@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="blocks/heads :: heads"></head>
+<body th:style="'background:url('+ @{/static/pic/background.jpg} +');'">
+<div class="top-bar" th:insert="blocks/header :: header"></div>
+<br>
+
+<div class="row column" th:name="${user}" th:each="user : ${users}">
+    <div class="panel callout radius" style="border: 3px solid aquamarine">
+        <p th:text="${message1}"></p>
+        <label>
+            <p>Username</p>
+        </label>
+        <p class="panel callout radius" th:text="${user.username}"></p>
+        <label>
+            <p>Telephone number</p>
+        </label>
+        <p class="panel callout radius" th:text="${user.phoneNumber}"></p>
+        <label>
+            <p>E-mail</p>
+        </label>
+        <p class="panel callout radius" th:text="${user.email}"></p>
+        <form method="post" th:action="'/listofusers/' + ${user.id} + '/remove'">
+            <button type="submit" class="button" style="float: right">
+                Delete user
+            </button>
+        </form>
+    </div>
+</div>
+
+<div th:insert="blocks/scripts :: scripts"></div>
+</body>
+</html>
