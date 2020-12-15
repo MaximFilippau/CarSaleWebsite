@@ -1,5 +1,7 @@
 package com.filippau.tc.controller;
 
+import com.filippau.tc.domain.BodyType;
+import com.filippau.tc.domain.Brand;
 import com.filippau.tc.domain.Car;
 import com.filippau.tc.domain.User;
 import com.filippau.tc.repository.CarRepository;
@@ -21,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.validation.Valid;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -38,13 +41,17 @@ public class CarListController {
 
 
     @GetMapping("/add")
-    public String addTransport() {
+    public String addCar(
+            Car car,
+            Model model) {
+        model.addAttribute("brands", Arrays.asList(Brand.values()));
+        model.addAttribute("bodytypes", Arrays.asList(BodyType.values()));
         return "addcar";
     }
 
 
     @PostMapping("/add")
-    public String addTransport(
+    public String addCar(
             @AuthenticationPrincipal User user,
             @Valid Car car,
             @RequestParam("file") MultipartFile[] files,

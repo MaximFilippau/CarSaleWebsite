@@ -19,13 +19,21 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
-    private String brand;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "brand", nullable = false)
+    private Brand brand;
 
     @NotNull
     private String model;
 
-    @NotBlank
+    @Enumerated(EnumType.STRING)
+    @Column(name = "body_type", nullable = false)
+    private BodyType bodyType;
+
+    @NotNull
+    private String volume;
+
+    @NotNull
     private String year;
 
     @NotNull

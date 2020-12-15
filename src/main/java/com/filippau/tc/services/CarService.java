@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -30,8 +31,16 @@ public class CarService {
         if (StringUtils.isEmpty(brandFilter) && StringUtils.isEmpty(modelFilter)&& StringUtils.isEmpty(yearFilter)) {
             return carRepository.findAll(pageable);
         } else {
-            return carRepository.findByBrandStartingWithIgnoreCaseAndModelStartingWithIgnoreCaseAndYear(
+            return carRepository.findByBrandStartingWithIgnoreCaseAndModelStartingWithIgnoreCaseAndYearStartingWith(
                     brandFilter, modelFilter, yearFilter, pageable);
         }
+    }
+
+    public List<Car> findByUser(User user) {
+        return carRepository.findByCarOwner(user);
+    }
+
+    public void deleteCar(Car car) {
+        carRepository.delete(car);
     }
 }

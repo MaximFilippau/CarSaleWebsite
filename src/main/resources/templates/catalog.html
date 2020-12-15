@@ -5,7 +5,9 @@
 <div class="top-bar" th:insert="blocks/header :: header"></div>
 <br>
 
-<div class="row column">
+<a href="/search"><img src="/static/pic/search.png" width="50px" height="50px"> </a>
+
+<div class="row">
     <div class="cell" th:each="car : ${catalog}">
         <a th:href="@{|/catalog/${car.id}|}">
             <img class="numberImage thumbnail" th:src="@{|/static/img/${car.filename}|}">
@@ -13,7 +15,7 @@
         <h5 th:text="${car.brand} + ' '+ ${car.model}"></h5>
         <h5 th:text="'Year of issue: '+ ${car.year}"></h5>
         <h5 th:text="'Price: '+ ${car.price} + '$'"></h5>
-        <a th:value="${car}" th:href="@{|/catalog/${car.id}|}" class="button hollow tiny expanded">View</a>
+        <a th:style="'font-size: 18px'" th:value="${car}" th:href="@{|/catalog/${car.id}|}" class="button tiny">View</a>
     </div>
 </div>
 <div class="row column" th:insert="blocks/footer :: footer"></div>

@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:insert="blocks/heads :: heads"></head>
+<head th:insert="blocks/heads :: heads">
+</head>
 <body th:style="'background:url('+ @{/static/pic/background.jpg} +');'">
 <div class="top-bar" th:insert="blocks/header :: header"></div>
 <br>
@@ -9,7 +10,7 @@
     <div class="cell" th:each="users : ${user}">
         <label>Your username</label>
         <div class="panel callout radius">
-        <p th:text="${user.username}"></p>
+            <p th:text="${user.username}"></p>
         </div>
         <label>Your telephone number</label>
         <div class="panel callout radius">
@@ -20,11 +21,27 @@
             <p th:text="${user.email}"></p>
         </div>
         <label>Your cars</label>
+        <div class="row column">
+            <div class="cell" th:each="car : ${my_cars}">
+                <div class="cont" th:style="'border: 3px solid; padding:10px'">
+                    <h5 th:style="'color: blue; '" th:text="${car.brand} + ' '+ ${car.model}"></h5>
+                    <h5 th:text="'Year of issue: '+ ${car.year}"></h5>
+                    <h5 th:text="'Price: '+ ${car.price} + '$'"></h5>
+                    <a th:value="${car}" th:href="@{|/catalog/${car.id}|}" class="button hollow tiny">View</a>
+                    <form method="post" th:action="'remove/'+${car.id}">
+                        <button type="submit" class="button" style="float: right">
+                            Delete car
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
 
-</div>
-<div class="row column" th:insert="blocks/footer :: footer"></div>
 
-<div th:insert="blocks/scripts :: scripts"></div>
+    </div>
+    <div class="row column" th:insert="blocks/footer :: footer"></div>
+
+    <div th:insert="blocks/scripts :: scripts"></div>
 </body>
 </html>
 

@@ -6,13 +6,29 @@
 <br>
 
 <div class="row column">
-    <form method="post" enctype="multipart/form-data">
-        <input type="text" name="brand" required placeholder="Brand">
+    <form method="post" enctype="multipart/form-data" th:object="${car}">
+
+        <select th:field="*{brand}" >
+            <option th:each="carBrand : ${brands}"
+                    th:text="${carBrand}"
+                    th:value="${carBrand}">
+            </option>
+        </select>
+
         <input type="text" name="model" required placeholder="Model">
+
+        <select th:field="*{bodyType}" >
+            <option th:each="btype : ${bodytypes}"
+                    th:text="${btype}"
+                    th:value="${btype}">
+            </option>
+        </select>
+
+        <input type="text" name="volume" required placeholder="Volume">
         <input type="text" name="year" required placeholder="Year of issue" maxlength="4">
         <input type="text" name="price" required placeholder="Price">
         <label>Transport photos</label>
-        <input type="file" name="file" accept=".jpg, .jpeg, .png" multiple="multiple" min="5" max="5">
+        <input class="form-control" type="file" name="file" accept=".jpg, .jpeg, .png" multiple="multiple" min="5" max="5">
         <textarea name="description" required placeholder="Description"></textarea>
         <button type="submit" class="button">Add car</button>
     </form>

@@ -4,7 +4,7 @@
 <body th:style="'background:url('+ @{/static/pic/background.jpg} +');'">
 <div class="top-bar" th:insert="blocks/header :: header"></div>
 <br>
-<form method="get" action="search">
+<form>
     <input type="text" name="brandFilter" placeholder="Brand" th:value="${brandFilter}">
     <input type="text" name="modelFilter" placeholder="Model" th:value="${modelFilter}">
     <input type="text" name="yearFilter" placeholder="Year" th:value="${yearFilter}">

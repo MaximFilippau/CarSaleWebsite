@@ -22,19 +22,14 @@ public class CarSearchController {
 
     @GetMapping
     public String getCars(
-            @RequestParam(required = false) String brandFilter,
-            @RequestParam(required = false) String modelFilter,
-            @RequestParam(required = false) String yearFilter,
+            @RequestParam(required = false, defaultValue = "") String brandFilter,
+            @RequestParam(required = false, defaultValue = "") String modelFilter,
+            @RequestParam(required = false, defaultValue = "") String yearFilter,
             @PageableDefault(sort = {"id", "brand"}, direction = Sort.Direction.ASC) Pageable pageable,
             Model model
     ) {
-        System.out.println(brandFilter + modelFilter + yearFilter);
-
         Page<Car> page = carService.findAllCarss(brandFilter, modelFilter, yearFilter, pageable);
         model.addAttribute("search", page);
-
-        System.out.println(page.getTotalElements());
-        System.out.println(page.getSize());
 
         model.addAttribute("hasContent", page.hasContent());
 

@@ -27,8 +27,17 @@
         <div class="medium-6 large-5 columns">
             <h3 th:text="${car.brand} + ' '+ ${car.model}"></h3>
             <h3 th:text="'Year of issue '+ ${car.year}"></h3>
+            <h3 th:text="'Body type: '+ ${car.bodyType}"></h3>
+            <h3 th:text="'Volume of engine: '+ ${car.volume}"></h3>
             <h3 th:text="'Price: '+ ${car.price} + '$'"></h3>
             <h5 th:text="'Description: '+${car.description}"></h5>
+            <br>
+        </div>
+        <div class="row">
+            <h3 th:style="'color: red; font-size:30px'">Contacts of owner:</h3>
+            Name: <h3 th:style="'font-size: 20px'" th:text="${car.carOwner.name}"></h3>
+            E-mail: <h3 th:style="'font-size: 20px'" th:text="${car.carOwner.email}"></h3>
+            Phone number: <h3 th:style="'font-size: 20px'" th:text="${car.carOwner.phoneNumber}"></h3>
         </div>
     </div>
 </div>
